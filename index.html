@@ -692,6 +692,141 @@
             font-size: 0.9rem;
         }
 
+        /* Reality TV Effects */
+        .reality-effect {
+            position: fixed;
+            font-size: 3rem;
+            pointer-events: none;
+            z-index: 9999;
+            animation: float-up 4s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes float-up {
+            0% {
+                opacity: 0;
+                transform: translateY(0) rotate(0deg) scale(0.5);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-200px) rotate(360deg) scale(1.5);
+            }
+        }
+
+        .camera-flash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
+            pointer-events: none;
+            z-index: 10000;
+            opacity: 0;
+            animation: flash 0.5s ease-out;
+        }
+
+        @keyframes flash {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 0.7; }
+        }
+
+        .drama-text {
+            position: fixed;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--pink);
+            text-shadow:
+                3px 3px 0 var(--black),
+                -3px -3px 0 var(--black),
+                3px -3px 0 var(--black),
+                -3px 3px 0 var(--black);
+            pointer-events: none;
+            z-index: 9999;
+            animation: drama-pop 2s ease-out forwards;
+            opacity: 0;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes drama-pop {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0);
+            }
+            10% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+            20% {
+                transform: translate(-50%, -50%) scale(0.95);
+            }
+            30% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+            80% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+        }
+
+        .wine-spill {
+            position: fixed;
+            font-size: 4rem;
+            pointer-events: none;
+            z-index: 9999;
+            animation: wine-fall 3s ease-in forwards;
+            opacity: 0;
+        }
+
+        @keyframes wine-fall {
+            0% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            z-index: 9999;
+            animation: confetti-fall 3s ease-out forwards;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                opacity: 1;
+                transform: translateY(-10px) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+
         /* Animations */
         .animate-on-scroll {
             opacity: 0;
@@ -1239,7 +1374,127 @@
             const length = chartLine.getTotalLength();
             chartLine.style.strokeDasharray = length;
             chartLine.style.strokeDashoffset = length;
+
+            // Start reality TV effects after page loads
+            setTimeout(() => {
+                startRealityTVEffects();
+            }, 3000);
         });
+
+        // ===== REALITY TV EFFECTS =====
+
+        // Reality TV emojis and effects
+        const realityEmojis = ['☕', '🍵', '🍷', '💅', '💋', '👑', '💎', '📺', '🎥', '✨'];
+        const dramaWords = ['DRAMA!', 'TEA!', 'OMG!', 'YAAAS!', 'ICONIC!', 'SLAY!', 'NO FILTER!', 'SPILL IT!'];
+        const confettiColors = ['#FF1493', '#FF69B4', '#000000', '#FFFFFF'];
+
+        function createFloatingEmoji() {
+            const emoji = realityEmojis[Math.floor(Math.random() * realityEmojis.length)];
+            const element = document.createElement('div');
+            element.className = 'reality-effect';
+            element.textContent = emoji;
+            element.style.left = Math.random() * 100 + '%';
+            element.style.top = Math.random() * 80 + 10 + '%';
+            document.body.appendChild(element);
+
+            setTimeout(() => {
+                element.remove();
+            }, 4000);
+        }
+
+        function createCameraFlash() {
+            const flash = document.createElement('div');
+            flash.className = 'camera-flash';
+            document.body.appendChild(flash);
+
+            setTimeout(() => {
+                flash.remove();
+            }, 500);
+        }
+
+        function createDramaText() {
+            const word = dramaWords[Math.floor(Math.random() * dramaWords.length)];
+            const element = document.createElement('div');
+            element.className = 'drama-text';
+            element.textContent = word;
+            document.body.appendChild(element);
+
+            setTimeout(() => {
+                element.remove();
+            }, 2000);
+        }
+
+        function createWineSpill() {
+            const element = document.createElement('div');
+            element.className = 'wine-spill';
+            element.textContent = '🍷';
+            element.style.left = Math.random() * 90 + 5 + '%';
+            element.style.top = '-100px';
+            document.body.appendChild(element);
+
+            setTimeout(() => {
+                element.remove();
+            }, 3000);
+        }
+
+        function createConfettiBurst() {
+            // Create 20-30 confetti pieces
+            const count = Math.floor(Math.random() * 10) + 20;
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.top = Math.random() * 20 + '%';
+                    confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                    confetti.style.animationDuration = (Math.random() * 1 + 2) + 's';
+                    document.body.appendChild(confetti);
+
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 3500);
+                }, i * 50);
+            }
+        }
+
+        // Main function to trigger random reality TV effects
+        function triggerRealityEffect() {
+            const effects = [
+                { fn: createFloatingEmoji, weight: 3 },
+                { fn: createCameraFlash, weight: 2 },
+                { fn: createDramaText, weight: 1 },
+                { fn: createWineSpill, weight: 2 },
+                { fn: createConfettiBurst, weight: 1 }
+            ];
+
+            // Weighted random selection
+            const totalWeight = effects.reduce((sum, effect) => sum + effect.weight, 0);
+            let random = Math.random() * totalWeight;
+
+            for (const effect of effects) {
+                random -= effect.weight;
+                if (random <= 0) {
+                    effect.fn();
+                    break;
+                }
+            }
+        }
+
+        function startRealityTVEffects() {
+            // Trigger an effect every 15-30 seconds
+            function scheduleNextEffect() {
+                const delay = (Math.random() * 15000) + 15000; // 15-30 seconds
+                setTimeout(() => {
+                    triggerRealityEffect();
+                    scheduleNextEffect();
+                }, delay);
+            }
+
+            // Trigger first effect
+            triggerRealityEffect();
+            scheduleNextEffect();
+        }
     </script>
 </body>
 </html>
