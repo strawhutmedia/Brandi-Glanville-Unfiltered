@@ -659,6 +659,92 @@
             font-weight: 600;
         }
 
+        /* Episodes Section */
+        .episodes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 2rem;
+        }
+
+        .episode-card {
+            background: var(--light-gray);
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid rgba(255, 20, 147, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .episode-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--pink), var(--black));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .episode-card:hover {
+            border-color: var(--pink);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.15);
+        }
+
+        .episode-card:hover::before {
+            opacity: 1;
+        }
+
+        .episode-date {
+            font-size: 0.75rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .episode-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 15px;
+            line-height: 1.4;
+            min-height: 3em;
+        }
+
+        .episode-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .episode-stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .episode-stat-row:last-child {
+            border-bottom: none;
+        }
+
+        .episode-stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .episode-stat-value {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--pink);
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -1030,6 +1116,219 @@
                 <div class="big-stat-icon">📱</div>
                 <div class="big-stat-value gradient-text-black">85.87%</div>
                 <div class="big-stat-label">Apple Podcasts</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Episodes Section -->
+    <section class="animate-on-scroll">
+        <h2 class="section-title gradient-text-pink">Recent Episodes</h2>
+        <div class="underline"></div>
+        <p class="section-subtitle">Individual episode performance breakdown for 2025</p>
+
+        <div class="episodes-grid">
+            <!-- Episode 1 -->
+            <div class="episode-card">
+                <div class="episode-date">09/24/25</div>
+                <div class="episode-title">Back on the Scene and Maybe on the Road?</div>
+                <div class="episode-stats">
+                    <div class="episode-stat-row">
+                        <span class="episode-stat-label">Downloads</span>
+                        <span class="episode-stat-value">7,854</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Episode 2 -->
+            <div class="episode-card">
+                <div class="episode-date">09/17/25</div>
+                <div class="episode-title">Tesla Trouble, Housewives Burnout & Brandi's Bag of Surprises</div>
+                <div class="episode-stats">
+                    <div class="episode-stat-row">
+                        <span class="episode-stat-label">Downloads</span>
+                        <span class="episode-stat-value">4,808</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Episode 3 -->
+            <div class="episode-card">
+                <div class="episode-date">09/11/25</div>
+                <div class="episode-title">From Palm Springs Chaos to OnlyFans Confessions</div>
+                <div class="episode-stats">
+                    <div class="episode-stat-row">
+                        <span class="episode-stat-label">Downloads</span>
+                        <span class="episode-stat-value">5,241</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Episode 4 -->
+            <div class="episode-card">
+                <div class="episode-date">08/28/25</div>
+                <div class="episode-title">Prison Letters and Celebrity Gossip: Brandi's Wild Return</div>
+                <div class="episode-stats">
+                    <div class="episode-stat-row">
+                        <span class="episode-stat-label">Downloads</span>
+                        <span class="episode-stat-value">6,595</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Episode 5 -->
+            <div class="episode-card">
+                <div class="episode-date">04/23/25</div>
+                <div class="episode-title">Unlocking the Fountain of Youth with Dr. Joy Kong</div>
+                <div class="episode-stats">
+                    <div class="episode-stat-row">
+                        <span class="episode-stat-label">Downloads</span>
+                        <span class="episode-stat-value">10,567</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Episode 6 -->
+            <div class="episode-card">
+                <div class="episode-date">04/16/25</div>
+                <div class="episode-title">Wait, Do I Look Like Mike Bobby Brown?!</div>
+                <div class="episode-stats">
+                    <div class="episode-stat-row">
+                        <span class="episode-stat-label">Downloads</span>
+                        <span class="episode-stat-value">5,726</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Episode 7 -->
+            <div class="episode-card">
+                <div class="episode-date">04/02/25</div>
+                <div class="episode-title">West Hollywood Woes & Housewives Blows</div>
+                <div class="episode-stats">
+                    <div class="episode-stat-row">
+                        <span class="episode-stat-label">Downloads</span>
+                        <span class="episode-stat-value">6,581</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Episode 8 -->
+            <div class="episode-card">
+                <div class="episode-date">03/26/25</div>
+                <div class="episode-title">The Mind-Body Connection with Dr. David Clarke</div>
+                <div class="episode-stats">
+                    <div class="episode-stat-row">
+                        <span class="episode-stat-label">Downloads</span>
+                        <span class="episode-stat-value">5,609</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Episode 9 -->
+            <div class="episode-card">
+                <div class="episode-date">03/19/25</div>
+                <div class="episode-title">Pop Culture, Chiropractors, and Cheating Scandals—Oh My!</div>
+                <div class="episode-stats">
+                    <div class="episode-stat-row">
+                        <span class="episode-stat-label">Downloads</span>
+                        <span class="episode-stat-value">5,579</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Episode 10 -->
+            <div class="episode-card">
+                <div class="episode-date">03/12/25</div>
+                <div class="episode-title">Hollywood Rundown: Gossip, Glam & a New Rap?!</div>
+                <div class="episode-stats">
+                    <div class="episode-stat-row">
+                        <span class="episode-stat-label">Downloads</span>
+                        <span class="episode-stat-value">5,341</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Episode 11 -->
+            <div class="episode-card">
+                <div class="episode-date">03/19/25</div>
+                <div class="episode-title">The Vacation Episode: Poolside Chats, White Lotus Theories, and Beverly Hills Drama</div>
+                <div class="episode-stats">
+                    <div class="episode-stat-row">
+                        <span class="episode-stat-label">Downloads</span>
+                        <span class="episode-stat-value">5,756</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Episode 12 -->
+            <div class="episode-card">
+                <div class="episode-date">02/25/25</div>
+                <div class="episode-title">Sip, Spill & Sizzle: White Lotus & Beverly Hills Drama Unpacked!</div>
+                <div class="episode-stats">
+                    <div class="episode-stat-row">
+                        <span class="episode-stat-label">Downloads</span>
+                        <span class="episode-stat-value">6,012</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Episode 13 -->
+            <div class="episode-card">
+                <div class="episode-date">02/20/25</div>
+                <div class="episode-title">Housewives, Hot Takes & Unfiltered Opinions</div>
+                <div class="episode-stats">
+                    <div class="episode-stat-row">
+                        <span class="episode-stat-label">Downloads</span>
+                        <span class="episode-stat-value">6,249</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Episode 14 -->
+            <div class="episode-card">
+                <div class="episode-date">02/14/25</div>
+                <div class="episode-title">Is It a Paradise w/ Stephen Manley</div>
+                <div class="episode-stats">
+                    <div class="episode-stat-row">
+                        <span class="episode-stat-label">Downloads</span>
+                        <span class="episode-stat-value">6,312</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Episode 15 -->
+            <div class="episode-card">
+                <div class="episode-date">02/12/25</div>
+                <div class="episode-title">Bonus: RHONY Season 15 Reunion Recap</div>
+                <div class="episode-stats">
+                    <div class="episode-stat-row">
+                        <span class="episode-stat-label">Downloads</span>
+                        <span class="episode-stat-value">5,773</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Episode 16 -->
+            <div class="episode-card">
+                <div class="episode-date">01/22/25</div>
+                <div class="episode-title">Life Updates and Real Housewives Recap</div>
+                <div class="episode-stats">
+                    <div class="episode-stat-row">
+                        <span class="episode-stat-label">Downloads</span>
+                        <span class="episode-stat-value">8,459</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Episode 17 -->
+            <div class="episode-card">
+                <div class="episode-date">01/13/25</div>
+                <div class="episode-title">Fires, Winds, and Running Out of Data</div>
+                <div class="episode-stats">
+                    <div class="episode-stat-row">
+                        <span class="episode-stat-label">Downloads</span>
+                        <span class="episode-stat-value">7,444</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
